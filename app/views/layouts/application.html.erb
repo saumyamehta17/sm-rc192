@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SmRc192</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if user_signed_in? %>
+    <%= current_user.email %> has role <% current_user.roles.each do |role| %>
+                                          <%= role.role_type %>
+                                        <% end %>
+<% end %>
+<%= yield %>
+
+</body>
+</html>
